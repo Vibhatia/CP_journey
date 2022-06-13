@@ -1,54 +1,48 @@
+/******************************************************************************
+
+Welcome to GDB Online.
+GDB online is an online compiler and debugger tool for C, C++, Python, Java, PHP, Ruby, Perl,
+C#, OCaml, VB, Swift, Pascal, Fortran, Haskell, Objective-C, Assembly, HTML, CSS, JS, SQLite, Prolog.
+Code, Compile, Run and Debug online from anywhere in world.
+
+*******************************************************************************/
+#include <iostream>
 #include <bits/stdc++.h>
 using namespace std;
-#define gc getchar_unlocked
-#define pb push_back
-#define fo(i, n) for (int i = 0; i < n; i++)
-#define Fo(i, k, n) for (i = k; k < n ? i < n : i > n; k < n ? i += 1 : i -= 1)
-#define ll long long
-#define all(x) x.begin(), x.end()
-#define rall x.rbegin(), x.rend()
-#define clr(x) memset(x, 0, sizeof(x))
-#define sortall(x) sort(all(x))
-#define sortrall(x) sort(rall(x))
-#define PI 3.1415926535897932384626
-typedef pair<int, int> pii;
-typedef vector<int> vi;
-typedef vector<pii> vpii;
-typedef vector<vi> vvi;
-//=======================
-const int MOD = 1000000007;
-const int N = 2e6 + 13, M = N;
-//=======================
-vi g[N];
-int a[N];
-int n, m, k;
-//=======================
- ll fact[100];
-  ll power[100];
-void solve()
-{
-    int n;
-    cin>>n;
-    vector<int> v;
-    for(int i=0; i<n; i++)
-    {
-        int x;
-        cin>>x;
-        v.pb(x);
+void print(int ind,vector<int> &ds,int  s,int sum,int arr[],int n){
+   
+    if(ind==n){
+         if(sum==s){
+        for(auto i:ds){
+            cout<<i<<" ";
+        }
+        cout<<endl;
+        
+         }
+    return;
     }
-    for(auto i=v.begin()+5; i<v.end(); i++)
-    cout<<v[i];
+    
+    ds.push_back(arr[ind]);
+    s+=arr[ind];
+    print(ind +1,ds,s,sum,arr,n);
+    sum-=arr[ind];
+    ds.pop_back();
+    
+    print(ind+1,ds,s,sum,arr,n);
+    
+    
 }
-
 int main()
 {
-  ios_base::sync_with_stdio(0), cin.tie(0);
-  int t = 1;
-  cin >> t;
-  while (t--)
-  {
-    solve();
-  }
-
-  return 0;
-}
+    int arr[] = {1,2,3};
+    vector<int> ds;
+    int n=3;
+    int sum=2;
+    vector<vector<int>> ans;
+    
+    print(0,ds,0,sum,arr,n);
+    // for(int i=0;i<ans.size();i++){
+    //     cout<<ans[i]<<endl;
+    // }
+    return 0;
+} 
