@@ -96,71 +96,44 @@ void print(vi v, int n)
     }
     cout << endl;
 }
+// bool answer(int arr[], int index, int sum, int target, int n, vi ds)
+// {
+//     if (index == n)
+//     {
+//         if (sum % 10 == target && (ds.size() == 3))
+//         {
+//             return true;
+//         }
+//         else
+//         {
+//             return false;
+//         }
+//     }
+//     ds.push_back(arr[index]);
+//     sum += arr[index];
+//     if (answer(arr, index + 1, sum, target, n, ds) == true)
+//         return true;
+//     sum -= arr[index];
+//     ds.pop_back();
+//     if (answer(arr, index + 1, sum, target, n, ds) == true)
+//         return true;
+//     return false;
+// }
 void solve()
 {
-    string s;
-    cin >> s;
-    int t, p = 0;
-    cin >> t;
-    int ml = t;
-    int a = 1440;
-    string q, v;
-    q.pb(s[3]);
-    q.pb(s[4]);
-    v.pb(s[0]);
-    v.pb(s[1]);
-    int f = stoi(v);
-    int e = stoi(q);
-    reverse(v.begin(), v.end());
-    if (q == v)
-        p++;
-    // set<int> l;
-    // cout<<f<<endl;
-    while (a >= 0)
+    int n;
+    cin >> n;
+    int arr[n];
+    fo(i, n)
     {
-
-        f += ml / 60;
-        e += ml % 60;
-
-        if (e >= 60)
-        {
-            f += 1;
-            e = e % 60;
-        }
-        if (f > 23)
-        {
-            f = 0;
-        }
-        string yt = to_string(e);
-        string re = to_string(f);
-        if (yt.length() == 1)
-        {
-            char mno = yt[0];
-            yt[0] = '0';
-            yt.pb(mno);
-        }
-        if (re.length() == 1)
-        {
-            char mn = re[0];
-            re[0] = '0';
-            re.pb(mn);
-        }
-        // cout<<e<<endl;
-        cout<<re<<" "<<yt<<endl;
-        reverse(yt.begin(), yt.end());
-        
-
-        if (yt == re)
-        {
-            p++;
-
-            // cout << yt << endl;
-        }
-        a = a - ml;
-        //   cout<<<<" "<<e<<endl;
+        cin >> arr[i];
     }
-    //    cout<<endl;
-    // cout << (p > 16 ? 16 : p) << endl;
+    // int index = 0;
+    // int sum = 0;
+    // vi ds;
+    // int target = 3;
+    // bool a = answer(arr, index, sum, target, n, ds);
+    // cout << (a == true ? "YES\n" : "NO\n");
 }
 
 signed main()
