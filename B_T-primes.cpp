@@ -100,41 +100,22 @@ void solve()
 {
     int n;
     cin>>n;
-    int arr[n];
-    map<int,int> mp;
-
-    fo(i,n){
-        cin>>arr[i];
-        if(mp[arr[i]%10]<3)
-        mp[arr[i]%10]++;
+    if(n==4){
+        cout<<"YES\n";
+        return;
     }
-
-vi v;
-    
-  for(auto i:mp){
-    while(i.second){
-        v.pb(i.first);
-        i.second--;
+    if(n==1){
+        cout<<"NO\n";
+        return;
     }
-  }
-
-  n=v.size();
-  for(int i=0;i<n;i++){
-        for(int j=i+1;j<n;j++){
-            for(int k=j+1;k<n;k++){
-                if((v[i]+v[j]+v[k])%10==3)
-                    {
-                        
-                        cout<<"YES\n";
-                        return;
-                    }
-            }
-        }
+    long double d = sqrt(n);
+    int a = d;
+    if(a==d && a&1){
+        cout<<"YES\n";
     }
-    cout<<"NO\n";
-
-    
-    
+    else{
+        cout<<"NO\n";
+    }
 }
 
 signed main()

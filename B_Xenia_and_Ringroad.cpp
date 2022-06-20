@@ -98,50 +98,33 @@ void print(vi v, int n)
 }
 void solve()
 {
-    int n;
-    cin>>n;
-    int arr[n];
-    map<int,int> mp;
-
-    fo(i,n){
+    int n,m;
+    cin>>n>>m;
+    int arr[m];
+    for(int i=0;i<m;i++){
         cin>>arr[i];
-        if(mp[arr[i]%10]<3)
-        mp[arr[i]%10]++;
     }
+    int sum=0;
+    sum = arr[0]-1;
+    for(int i=1;i<m;i++){
 
-vi v;
-    
-  for(auto i:mp){
-    while(i.second){
-        v.pb(i.first);
-        i.second--;
-    }
-  }
-
-  n=v.size();
-  for(int i=0;i<n;i++){
-        for(int j=i+1;j<n;j++){
-            for(int k=j+1;k<n;k++){
-                if((v[i]+v[j]+v[k])%10==3)
-                    {
-                        
-                        cout<<"YES\n";
-                        return;
-                    }
-            }
+        if(arr[i]-arr[i-1]<0){
+            sum = sum + n + arr[i]-arr[i-1];
         }
-    }
-    cout<<"NO\n";
+        else{
+            sum+=(arr[i]-arr[i-1]);
+        }
 
-    
-    
+    }
+    cout<<sum<<endl;
+
 }
 
 signed main()
 {
   ios_base::sync_with_stdio(0), cin.tie(0);
   int t = 1;
-  cin >> t;
+//   cin >> t;
   while (t--)
   {
     solve();

@@ -98,50 +98,24 @@ void print(vi v, int n)
 }
 void solve()
 {
+    int arr[]={4,7,44,47,74,77,444,447,474,477,744,747,774,777};
     int n;
     cin>>n;
-    int arr[n];
-    map<int,int> mp;
-
-    fo(i,n){
-        cin>>arr[i];
-        if(mp[arr[i]%10]<3)
-        mp[arr[i]%10]++;
-    }
-
-vi v;
-    
-  for(auto i:mp){
-    while(i.second){
-        v.pb(i.first);
-        i.second--;
-    }
-  }
-
-  n=v.size();
-  for(int i=0;i<n;i++){
-        for(int j=i+1;j<n;j++){
-            for(int k=j+1;k<n;k++){
-                if((v[i]+v[j]+v[k])%10==3)
-                    {
-                        
-                        cout<<"YES\n";
-                        return;
-                    }
-            }
+    for(int i=0;i<14;i++){
+        if((n%arr[i])==0){
+            cout<<"YES\n";
+            return;
         }
     }
     cout<<"NO\n";
 
-    
-    
 }
 
 signed main()
 {
   ios_base::sync_with_stdio(0), cin.tie(0);
   int t = 1;
-  cin >> t;
+//   cin >> t;
   while (t--)
   {
     solve();
